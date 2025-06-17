@@ -18,7 +18,7 @@ def mask_account_card(account_card: str) -> str :
 
 
 def get_date(data_number: str) -> str:
-    """функция получает информацию о дате и переделает ее по нашей"""
+    """функция получает информацию о дате и переделает"""
     correct = data_number[8:10] + "." + data_number[5:7] + "." + data_number[:4]
     return correct
 
