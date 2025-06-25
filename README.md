@@ -1,40 +1,99 @@
-# Проект "Маскировка банковской карты"
+## Описание
 
-## Описание:
+Цель проекта — предоставить пользователям набор утилит для обработки и анализа транзакций. Основные функции включают фильтрацию транзакций по статусу и сортировку по дате.
 
-Мой проект создать для маскировки карт при вводе
+## Установка
 
-## Установка:
+Для работы с проектом выполните следующие шаги:
 
 1. Клонируйте репозиторий:
-```
-git clone https://github.com/username/myblog.git
-```
+   
+   git clone https://github.com/username/transaction-processor.git
+   cd transaction-processor
+   
 
 2. Установите зависимости:
-```
-pip install -r requirements.txt
-```
+   Убедитесь, что у вас установлен Python 3.x. Установите необходимые пакеты, если они присутствуют в requirements.txt:
+   
+   pip install -r requirements.txt
+   
 
-3. Создайте базу данных и выполните миграции:
-```
-python manage.py migrate
-```
+## Использование
 
-4. Запустите локальный сервер:
-```
-python manage.py runserver
-```
-## Использование:
+Ниже представлены примеры использования основных функций проекта.
 
-1. Перейдите на страницу в вашем веб-браузере.
-2. Создайте новую учетную запись или войдите существующей.
-3. Создайте новую запись в блоге или оставьте комментарий к существующей.
+### Функция filter_by_state
 
-## Документация:
+Фильтрует список транзакций по указанному состоянию, по умолчанию EXECUTED.
 
-Дополнительную информацию о структуре проекта и API можно найти в [документации](docs/README.md).
+from transaction_processor import filter_by_state
 
-## Лицензия:
+transactions = [
+    {"id": 1, "state": "EXECUTED", "date": "2023-10-01"},
+    {"id": 2, "state": "PENDING", "date": "2023-10-02"}
+]
 
-Проект распространяется под [лицензией MIT](LICENSE).
+executed_transactions = filter_by_state(transactions)
+print(executed_transactions)
+
+
+### Функция sort_by_date
+
+Сортирует транзакции по дате. По умолчанию сортирует в порядке убывания.
+
+from transaction_processor import sort_by_date
+
+transactions = [
+    {"id": 1, "state": "EXECUTED", "date": "2023-10-01"},
+    {"id": 2, "state": "PENDING", "date": "2023-10-02"}
+]
+
+sorted_transactions = sort_by_date(transactions)
+print(sorted_transactions)
+
+
+## Примеры
+
+1. Фильтрация транзакций:
+   
+   from transaction_processor import filter_by_state
+
+   transactions = [
+       {"id": 1, "state": "EXECUTED", "date": "2023-10-01"},
+       {"id": 2, "state": "PENDING", "date": "2023-10-02"}
+   ]
+
+   executed_transactions = filter_by_state(transactions)
+   print(executed_transactions)  # [{'id': 1, 'state': 'EXECUTED', 'date': '2023-10-01'}]
+   
+
+2. Сортировка транзакций:
+   
+   from transaction_processor import sort_by_date
+
+   transactions = [
+       {"id": 1, "state": "EXECUTED", "date": "2023-10-01"},
+       {"id": 2, "state": "PENDING", "date": "2023-10-02"}
+   ]
+
+   sorted_transactions = sort_by_date(transactions)
+   print(sorted_transactions)  # [{'id': 2, 'state': 'PENDING', 'date': '2023-10-02'}, {'id': 1, 'state': 'EXECUTED', 'date': '2023-10-01'}]
+   
+
+## Вклад
+
+Если вы хотите внести свой вклад в проект, пожалуйста, следуйте этим шагам:
+
+1. Форкните репозиторий.
+2. Создайте новую ветку (git checkout -b feature-branch).
+3. Внесите свои изменения и зафиксируйте их (git commit -m 'Add new feature').
+4. Запушьте изменения в свою ветку (git push origin feature-branch).
+5. Откройте Pull Request.
+
+## Тестирование
+
+Этот проект использует `pytest` для написания и выполнения тестов. Следуйте инструкциям ниже, чтобы настроить и запустить тесты.
+
+### Установка Pytest
+
+Если `pytest` еще не установлен, вы можете установить его с помощью pip:
