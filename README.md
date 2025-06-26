@@ -14,9 +14,9 @@
 
 2. Установите зависимости:
    Убедитесь, что у вас установлен Python 3.x. Установите необходимые пакеты, если они присутствуют в requirements.txt:
-   
+   ```
    pip install -r requirements.txt
-   
+   ```
 
 ## Использование
 
@@ -27,7 +27,7 @@
 Фильтрует список транзакций по указанному состоянию, по умолчанию EXECUTED.
 
 from transaction_processor import filter_by_state
-
+```
 transactions = [
     {"id": 1, "state": "EXECUTED", "date": "2023-10-01"},
     {"id": 2, "state": "PENDING", "date": "2023-10-02"}
@@ -35,7 +35,7 @@ transactions = [
 
 executed_transactions = filter_by_state(transactions)
 print(executed_transactions)
-
+```
 
 ### Функция sort_by_date
 
