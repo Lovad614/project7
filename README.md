@@ -7,15 +7,15 @@
 Для работы с проектом выполните следующие шаги:
 
 1. Клонируйте репозиторий:
-   
+   ````
    git clone https://github.com/username/transaction-processor.git
    cd transaction-processor
-   
+   ````
 
 2. Установите зависимости:
    Убедитесь, что у вас установлен Python 3.x. Установите необходимые пакеты, если они присутствуют в requirements.txt:
    ```
-   pip install -r requirements.txt
+   poetry add -r requirements.txt
    ```
 
 ## Использование
@@ -40,7 +40,7 @@ print(executed_transactions)
 ### Функция sort_by_date
 
 Сортирует транзакции по дате. По умолчанию сортирует в порядке убывания.
-
+```
 from transaction_processor import sort_by_date
 
 transactions = [
@@ -50,12 +50,12 @@ transactions = [
 
 sorted_transactions = sort_by_date(transactions)
 print(sorted_transactions)
-
+```
 
 ## Примеры
 
 1. Фильтрация транзакций:
-   
+   ```   
    from transaction_processor import filter_by_state
 
    transactions = [
@@ -65,10 +65,10 @@ print(sorted_transactions)
 
    executed_transactions = filter_by_state(transactions)
    print(executed_transactions)  # [{'id': 1, 'state': 'EXECUTED', 'date': '2023-10-01'}]
-   
+   ```   
 
 2. Сортировка транзакций:
-   
+   ```
    from transaction_processor import sort_by_date
 
    transactions = [
@@ -78,7 +78,7 @@ print(sorted_transactions)
 
    sorted_transactions = sort_by_date(transactions)
    print(sorted_transactions)  # [{'id': 2, 'state': 'PENDING', 'date': '2023-10-02'}, {'id': 1, 'state': 'EXECUTED', 'date': '2023-10-01'}]
-   
+   ```
 
 ## Вклад
 
