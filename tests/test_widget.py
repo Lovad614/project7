@@ -3,7 +3,7 @@ from src.widget import mask_account_card, get_date
 
 # Фикстура для номеров карт
 @pytest.fixture
-def card_numbers():
+def card_number():
     return {
         "valid": "1234567812345678",
         "short": "1234",
@@ -12,7 +12,7 @@ def card_numbers():
 
 # Фикстура для номеров счетов
 @pytest.fixture
-def account_numbers():
+def account_number():
     return {
         "valid": "12345678901234567890",
         "short": "1234",
@@ -21,7 +21,7 @@ def account_numbers():
 
 # Фикстура для строк с датами
 @pytest.fixture
-def date_strings():
+def date_number():
     return {
         "valid": "2023-10-05T14:48:00.000",
         "invalid": "05-10-2023"

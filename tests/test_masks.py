@@ -12,7 +12,7 @@ def card_number():
 
 # Фикстура для тестовых данных счетов
 @pytest.fixture
-def account_numbers():
+def account_number():
     return {
         "valid": "12345678901234567890",
         "invalid_length": "12345678",
