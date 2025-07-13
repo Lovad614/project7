@@ -24,8 +24,3 @@ def get_date(data_number: str) -> str:
     return correct
 
 
-if __name__ == '__main__':
-
-    print(mask_account_card('Visa Platinum 7000792289606361'))
-    print(mask_account_card('Cчет 73654108430135874305'))
-    print(get_date("1981-11-17T00:00:01.136347"))

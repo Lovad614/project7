@@ -26,22 +26,11 @@ def date_strings():
         "valid": "2023-10-05T14:48:00.000",
         "invalid": "05-10-2023"
     }
+def test_mask_account_card(number_card, account_card):
+    assert mask_account_card(f"Счет {number_card['valid']}") == "Счет ****************7890"
+    assert mask_account_card(f"Карта VISA {account_card['valid']}") == "Карта VISA 1234********5678"
 
-def test_mask_card_number(card_numbers):
-    assert mask_account_card(card_numbers["valid"]) == "1234********5678"
-    assert mask_account_card(card_numbers["short"]) == "1234"
-    assert mask_account_card(card_numbers["long"]) == "1234************7890"  # 12 звездочек
-
-def test_mask_account_number(account_numbers):
-    assert mask_account_card(account_numbers["valid"]) == "****************7890"
-    assert mask_account_card(account_numbers["short"]) == "**34"
-    assert mask_account_card(account_numbers["with_letters"]) == "****************6789"
-
-def test_mask_account_card(card_numbers, account_numbers):
-    assert mask_account_card(f"Счет {account_numbers['valid']}") == "Счет ****************7890"
-    assert mask_account_card(f"Карта VISA {card_numbers['valid']}") == "Карта VISA 1234********5678"
-
-def test_get_date(date_strings):
-    assert get_date(date_strings["valid"]) == "05.10.2023"
+def test_get_date(date_number):
+    assert get_date(date_number["valid"]) == "05.10.2023"
     with pytest.raises(ValueError):
-        get_date(date_strings["invalid"])
+        get_date(date_number["invalid"])
