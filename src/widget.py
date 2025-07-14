@@ -3,11 +3,11 @@ from src.masks import get_mask_account, get_mask_card_number
 '''импортировал из маск функции'''
 
 
-def mask_account_card(account_card: str, number_card : str) -> str :
+def mask_account_card(account_card:str) -> str :
 
     """скрываем счет и номер карты с помощью функций"""
 
-    if "счет" in account_card:
+    if "Cчет" in account_card:
         number_card = int(account_card[-10:])
         masked_card = get_mask_account(number_card)
         return f"Счет {masked_card}"

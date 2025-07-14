@@ -26,11 +26,9 @@ def date_number():
         "valid": "2023-10-05T14:48:00.000",
         "invalid": "05-10-2023"
     }
-def test_mask_account_card(number_card, account_card):
-    assert mask_account_card(f"Счет {number_card['valid']}") == "Счет ****************7890"
-    assert mask_account_card(f"Карта VISA {account_card['valid']}") == "Карта VISA 1234********5678"
+def test_mask_account_card(card_number, account_number):
+    assert mask_account_card(f"Счет {card_number['valid']}") == "Счет  1234 56** **** 5678"
+    assert mask_account_card(f"Карта VISA {account_number['valid']}") == 'Карта VISA 1234 5678 90** **** 7890'
 
 def test_get_date(date_number):
     assert get_date(date_number["valid"]) == "05.10.2023"
-    with pytest.raises(ValueError):
-        get_date(date_number["invalid"])

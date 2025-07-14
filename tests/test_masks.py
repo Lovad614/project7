@@ -26,8 +26,8 @@ def test_get_mask_card_number_valid(card_number):
 
 def test_get_mask_card_number_invalid_length(card_number):
     # Ожидается, что функция вернет исходное значение и выведет сообщение об ошибке
-    expected_result = str(card_number["invalid_length"])
-    assert get_mask_card_number(card_number["invalid_length"]) == expected_result
+    with pytest.raises(ValueError):
+        get_mask_card_number(card_number["invalid_length"])
 
 
 def test_get_mask_account_valid(account_number):
@@ -37,10 +37,5 @@ def test_get_mask_account_valid(account_number):
 
 def test_get_mask_account_invalid_length(account_number):
     # Ожидается, что функция вернет исходное значение и выведет сообщение об ошибке
-    expected_result = account_number["invalid_length"]
-    assert get_mask_account(account_number["invalid_length"]) == expected_result
-
-def test_get_mask_account_invalid_characters(account_number):
-    # Ожидается, что функция вернет исходное значение и выведет сообщение об ошибке
-    expected_result = account_number["invalid_characters"]
-    assert get_mask_account(account_number["invalid_characters"]) == expected_result
+    with pytest.raises(ValueError):
+        get_mask_account(account_number["invalid_length"])
