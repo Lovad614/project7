@@ -1,36 +1,10 @@
-import pytest
-
 from src.widget import get_date, mask_account_card
 
 
-# Фикстура для номеров карт
-@pytest.fixture
-def card_number():
-    return {
-        "valid": "1234567812345678",
-        "short": "1234",
-        "long": "12345678901234567890"
-    }
-
-# Фикстура для номеров счетов
-@pytest.fixture
-def account_number():
-    return {
-        "valid": "12345678901234567890",
-        "short": "1234",
-        "with_letters": "1234abc7890123456789"
-    }
-
-# Фикстура для строк с датами
-@pytest.fixture
-def date_number():
-    return {
-        "valid": "2023-10-05T14:48:00.000",
-        "invalid": "05-10-2023"
-    }
-def test_mask_account_card(card_number, account_number):
+def test_mask_account_card(card_number: dict[str, str], account_number: dict[str, str]) -> None:
     assert mask_account_card(f"Счет {card_number['valid']}") == "Счет  1234 56** **** 5678"
-    assert mask_account_card(f"Карта VISA {account_number['valid']}") == 'Карта VISA 1234 5678 90** **** 7890'
+    assert mask_account_card(f"Карта VISA {account_number['valid']}") == "Карта VISA 1234 5678 90** **** 7890"
 
-def test_get_date(date_number):
+
+def test_get_date(date_number: dict[str, str]) -> None:
     assert get_date(date_number["valid"]) == "05.10.2023"
