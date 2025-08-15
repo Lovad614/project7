@@ -1,4 +1,4 @@
-def filter_by_currency(items: list, cur: str)-> list:
+def filter_by_currency(items: list, cur: str) -> Generator[list]:
     """Фильтрует транзакции по валюте 'RUB'"""
     for item in items:
         if (
@@ -10,13 +10,13 @@ def filter_by_currency(items: list, cur: str)-> list:
                 yield item
 
 
-def transaction_descriptions(items: list[dict[str, object]])-> list:
+def transaction_descriptions(items: list[dict[str, object]]) -> Generator[list]:
     """Возвращает описание транзакции"""
     for item in items:
         yield item["description"]
 
 
-def card_number_generator(start: int, stop: int) -> int:
+def card_number_generator(start: int, stop: int) -> Generator[int]:
     """Генератор, выдает номера банковских карт в формате ХХХХ ХХХХ ХХХХ ХХХХ"""
     if start > stop:
         raise ValueError("значение start должно быть меньше или равно значению stop")
