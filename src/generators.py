@@ -1,4 +1,4 @@
-def filter_by_currency(items: list, cur: str) -> Generator[list]:
+def filter_by_currency(items: list, cur: str) -> Generator[dict]:
     """Фильтрует транзакции по валюте 'RUB'"""
     for item in items:
         if (
@@ -10,7 +10,7 @@ def filter_by_currency(items: list, cur: str) -> Generator[list]:
                 yield item
 
 
-def transaction_descriptions(items: list[dict[str, object]]) -> Generator[list]:
+def transaction_descriptions(items: list[dict[str, object]]) -> Generator[dict]:
     """Возвращает описание транзакции"""
     for item in items:
         yield item["description"]
