@@ -1,3 +1,6 @@
+from typing import Generator
+
+
 def filter_by_currency(items: list, cur: str) -> Generator[dict]:
     """Фильтрует транзакции по валюте 'RUB'"""
     for item in items:
